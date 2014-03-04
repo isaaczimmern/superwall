@@ -1,9 +1,11 @@
 <h2>Superwall</h2>
-
 <div id="post-form">
   <form action="/posts" method="post">
     <div>
-      <textarea name="body"></textarea>
+        <input type="text" name="url" placeholder="Image URL (optional)">
+    </div>
+    <div>
+      <textarea name="body" placeholder="Post you message here!"></textarea>
     </div>
     <div>
       <input type="submit" value="Post">
@@ -15,11 +17,17 @@
     <li>
       <!-- Read http://www.ruby-doc.org/core-2.1.1/Time.html#method-i-strftime 
            for information about how this strftime voodoo works -->
-      <p><%= post.created_at.strftime('%A, %B %-d, %Y') %></p>
+      <p><%= post.created_at.strftime('%A, %B %-d, %Y') %></p> 
       <!-- What does "escape" do here?  What happens if you remove it? -->
       <!-- Try creating a post that contains HTML and see how that post looks
            with and without the call to escape() -->
-      <p><%= escape(post.body) %></p>
+      <% unless post.url.nil? %>
+        <img src="<%= post.url %>">
+      <% end %>
+      
+      <% unless post.body.nil? %>
+        <p><%= escape(post.body) %></p>
+      <% end %>
     </li>
   <% end %>
 </ol>

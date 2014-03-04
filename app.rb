@@ -11,7 +11,7 @@ get '/' do
 end
 
 post '/posts' do
-  Post.create(:body => params[:body])
+  Post.create(:body => params[:body], :url => params[:url])
   redirect to('/')
 end
 

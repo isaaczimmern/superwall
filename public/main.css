@@ -1,5 +1,10 @@
 body {
-  background-color: white;
+  background: url("http://wallike.com/wp-content/uploads/2013/08/Green-Smoke-Background-640x400.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: left;
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -26,6 +31,10 @@ body {
 #post-form textarea {
   width: 400px;
   min-height: 50px;
+}
+
+#post-form textarea {
+
 }
 
 #content {
